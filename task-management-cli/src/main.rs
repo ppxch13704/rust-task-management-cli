@@ -25,9 +25,9 @@ fn print_task(task: &Vec<Task>){
 fn main(){
 
     let mut task_vec: Vec<Task> = Vec::new();
-    let mut select_task = String::new();
-
+    
     loop{
+        let mut select_task = String::new();
         io::stdout().flush().unwrap();
         println!("Features\n1. Add Task\n2. Show Tasks\n3. Complete Task\n4. Delete Task\n5. Exit\n\nEnter number to select: \n\n");
         let mut choice = String::new();
