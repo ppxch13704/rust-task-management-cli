@@ -12,20 +12,6 @@ struct Task{
 }
 
 
-
-/*fn print_task(task: &Vec<Task>){
-        println!("Task : ");
-    for count in 0..task.len(){
-        if task[count].done == true{ 
-            print!("[✓]");
-        }
-        else {
-            print!("[ ]");
-        }
-        println!("{}", task[count].title);
-        } 
-    }
-*/
 fn write_file(task: &Vec<Task>){
     
     let mut file = OpenOptions::new()
@@ -34,7 +20,6 @@ fn write_file(task: &Vec<Task>){
         .open("task.txt")
         .expect("Failed to open file");
 
-    //writeln!(file,"{:?}",task);
     for count in 0..task.len(){
         if task[count].done == true{
             write!(file,"[✓]");
@@ -54,14 +39,12 @@ fn read_file()->Result<(), Box<dyn Error>>{
 
 fn main(){
 
-    
-
     let mut task_vec: Vec<Task> = Vec::new();
     
     loop{
         let mut select_task = String::new();
         io::stdout().flush().unwrap();
-        println!("Features\n1. Add Task\n2. Show Tasks\n3. Complete Task\n4. Delete Task\n5. Exit\n\nEnter number to select: \n\n");
+        println!("Features\n1. Add Task\n2. Show Tasks\n3. Complete Task\n4. Delete Task\n5. Exit\n\nEnter number to select: \n");
         let mut choice = String::new();
         io::stdin()
             .read_line(&mut choice)
